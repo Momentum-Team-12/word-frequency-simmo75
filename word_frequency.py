@@ -15,11 +15,16 @@ def print_word_freq(file):
         contents_lower = contents_string.lower()
         for character in string.punctuation:
             contents_lower = contents_lower.replace(character, '')
-        contents_split = contents_lower.split()   
+        contents_split = contents_lower.split()
         for word in contents_split:
             if word in STOP_WORDS:
                 contents_split.remove(word)
-    print(contents_split)
+
+            else:
+                count = contents_split.count(word)
+                ast = "*" * count
+
+                print("{} | {} {}".format(word, count, ast))
 
 
 if __name__ == "__main__":
